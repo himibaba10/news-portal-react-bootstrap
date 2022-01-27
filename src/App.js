@@ -19,7 +19,8 @@ function App() {
       .then((data) => {
         setNews(data.articles);
         setNewsLoaded(true);
-      });
+      })
+      .catch(error => console.log(error));
   }, [handleSearch]);
   return (
     <div className="App">
@@ -48,9 +49,7 @@ function App() {
             </Card.Body>
           </Card>
         )}
-        {news.map((singleNews) => (
-          <News singleNews={singleNews} />
-        ))}
+        {news.map((singleNews) => <News singleNews={singleNews} />)}
       </div>
     </div>
   );
